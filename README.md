@@ -6,6 +6,10 @@ Each metric will have: Timestamp, name, and value.
 The metrics will be shown in a timeline and must show averages per minute/hour/day.
 The metrics will be persisted in the database.
 
+# Video
+
+[![Loom video](https://cdn.loom.com/sessions/thumbnails/0daf9b006636473fb6775046f1c81cc4-with-play.gif)](https://www.loom.com/share/0daf9b006636473fb6775046f1c81cc4?sid=1236adfb-9434-4e3d-8682-187623e8ffe3 "Loom video")
+
 # Installation
 
 ## Requirements
@@ -23,6 +27,15 @@ The metrics will be persisted in the database.
 - Install dependencies: `pnpm i`
 - Start: `pnpm run start`
 
+# How to run
+- Start docker demon 
+- Start docker compose `docker-compose up -d`
+- Setup the database explained in docker-compose.yml
+- Start api `pnpm run dev` + with the envs (api/.env.dev)
+- Start web `pnpm run dev`
+- Go to http://localhost:3000
+
+```shell
 # Api
 
 ### Generate api doc
@@ -89,3 +102,10 @@ Reponse
   }
 ]
 ```
+
+# Next steps
+- Share the 'metric selector' between the form and the chart.
+- Test suite. Unit + integration.
+- Adapt to UI mobile first.
+- Use hexagonal architecture instead of layers.
+- Error handling in backend and frontend.
