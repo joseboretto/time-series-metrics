@@ -7,9 +7,9 @@ export enum WindowFn {
 
 // https://docs.influxdata.com/flux/v0/spec/types/#duration-types
 export enum WindowDurationUnit {
-    minute = 'minute',
-    hour = 'hour',
-    day = 'day',
+    minute = 'm',
+    hour = 'h',
+    day = 'd',
 }
 
 export class GetMetricWindowRequest {

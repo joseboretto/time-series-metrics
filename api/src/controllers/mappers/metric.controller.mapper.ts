@@ -1,4 +1,3 @@
-
 import {GetMetricRequest, GetMetricWindowRequest, WindowDurationUnit, WindowFn} from "../../dtos/getmetric.request";
 import {MetricNames} from "../../models/metric.enum";
 
@@ -9,11 +8,19 @@ class metricControllerMapper {
                           windowFn?: string,
                           windowDurationUnit?: string,
                           windowDurationValue?: number): GetMetricRequest {
-        let getMetricWindowRequest
+        let getMetricWindowRequest: GetMetricWindowRequest | undefined
         if (windowFn && windowDurationUnit && windowDurationValue) {
+            const windowDurationUnitEnum: WindowDurationUnit = WindowDurationUnit[windowDurationUnit];
+            if (!windowDurationUnitEnum) {
+                throw new Error(`Invalid windowDurationUnit ${windowDurationUnit}`)
+            }
+            const windowFnEnum: WindowFn = WindowFn[windowFn];
+            if (!windowFnEnum) {
+                throw new Error(`Invalid windowFn ${windowFn}`)
+            }
             getMetricWindowRequest = new GetMetricWindowRequest(
-                windowFn as WindowFn,
-                windowDurationUnit as WindowDurationUnit,
+                windowFnEnum,
+                windowDurationUnitEnum,
                 windowDurationValue)
         }
         return new GetMetricRequest(
