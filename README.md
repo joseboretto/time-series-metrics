@@ -14,6 +14,7 @@ The metrics will be persisted in the database.
 
 ## Requirements
 
+- Docker. [Install docker](https://docs.docker.com/get-docker/)
 - NodeJS `version >= 20.x`
 - pnpm `version = 8.x` [pnpm install documentation](https://pnpm.io/installation)
 
@@ -29,7 +30,8 @@ The metrics will be persisted in the database.
 
 # How to run
 - Start docker demon 
-- Start docker compose `docker-compose up -d`
+- Start docker compose `docker-compose up -d`. This will:
+    - Start influxdb. https://www.influxdata.com/
 - Setup the database explained in docker-compose.yml
 - Start api `pnpm run dev` + with the envs (api/.env.dev)
 - Start web `pnpm run dev`
